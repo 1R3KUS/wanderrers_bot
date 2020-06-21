@@ -10,3 +10,10 @@ const bot = new TelegramBot(token, { polling: true });
 bot.onText(/Hello/, msg => {
   bot.sendMessage(msg.chat.id, 'I\'m bot Wanderrers. How can i help you?');
 })
+
+bot.onText(/\/date/, (msg) => {
+  const userId = msg.chat.id;
+  const d = new Date();
+  const dToday = d.getDate() + '/' + (d.getMonth()) + '/' + d.getFullYear()
+  bot.sendMessage(userId, dToday);
+})
